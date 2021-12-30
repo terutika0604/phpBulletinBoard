@@ -21,6 +21,31 @@
     </h1>
     <p>{!! nl2br(e($post->body)) !!}</p>
 
+    <h2>Comennts</h2>
+    <ul>
+        <li>
+            <form method="post" action="{{ route('comments.store', $post) }}" class="comment-form">
+                @csrf
+
+                <input type="text" name="body">
+                <button>add</button>
+            </form>
+        </li>
+        @foreach ($post->comments()->latest()->get() as $comment)
+        <li>
+            {{ $comment->body }}
+            <form  method="post" action="{{ route('comments.destroy', $comment) }}"  class="delete-comment">
+                @method('DELETE')
+                @csrf
+
+                <button class="button">[x]</button>
+
+            </form>
+        </li>
+        @endforeach
+    </ul>
+
+
     <script>
         'use strict';
 
@@ -33,7 +58,22 @@
                 }
 
                 e.target.submit();
-            })
+            });
+
+            document.querySelectorAll('.delete-comment').forEach(form => {
+
+                form.addEventListener('submit', e => {
+                    e.preventDefault();
+
+                    if(!confirm('sure to delete?')) {
+                        return;
+                    }
+
+                    form.submit();
+                });
+
+            });
+
         }
     </script>
 
