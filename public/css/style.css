@@ -3,7 +3,7 @@ a {
 }
 
 .container {
-    width: 480px;
+    width: 580px;
     margin: 40px auto;
 }
 
@@ -21,16 +21,49 @@ h1 a {
     font-size: 16px;
     font-weight: normal;
     margin-left: auto;
+    display: inline-block;
+    background-color: orange;
+    color: white;
+    border: black 1px solid;
+    border-radius: 5px;
+    padding: 10px 20px;
+    transition: all .2s;
+}
+
+h1 a:hover{
+    opacity: 0.6;
 }
 
 h2 {
     font-size: 16px;
-    margin-top: 40px;
+    margin-top: 100px;
+    padding-top: 20px;
+    border-top: black 1px solid;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
 }
 
 li {
     line-height: 1.6;
     margin-bottom: 8px;
+}
+
+.articles li {
+    border-bottom: black 1px solid;
+    transition: all 0.2s;
+    padding: 10px 20px;
+}
+
+.articles li:hover {
+    opacity: 0.6;
+    color:  blue;
+}
+
+.articles li:hover a {
+    color:  blue;
 }
 
 .back-link {
@@ -45,6 +78,7 @@ input, textarea {
     padding: 4px;
     width: 100%;
     box-sizing: border-box;
+    border-radius: 4px;
 }
 
 textarea {
@@ -63,6 +97,16 @@ button {
 .form-button {
     text-align: right;
 }
+
+.form-button button {
+    background-color: orange;
+    color: white;
+    border: black 1px solid;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
 
 .error {
     color: red;
@@ -84,8 +128,21 @@ button {
     display: flex;
 }
 
+.comment-form input {
+    height: 30px;
+}
+
 .comment-form > button {
+    width: 80px;
+    height: 30px;
     margin-left: 8px;
+    color: orange;
+    cursor: pointer;
+    background-color: transparent;
+    border: orange 1px solid;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 4px;
 }
 
 .delete-comment {

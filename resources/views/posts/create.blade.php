@@ -2,19 +2,19 @@
 <x-layout>
 
     <x-slot name="title">
-        Add new post - My BBS
+        新規投稿 - Laravel掲示板
       </x-slot>
 
     <div class="back-link">
-        &laquo; <a href="{{ route('posts.index') }}">Back</a>
+        &laquo; <a href="{{ route('posts.index') }}">戻る</a>
     </div>
-    <h1>Add new post</h1>
+    <h1>新規投稿</h1>
 
     <form method="post" action="{{ route('posts.store') }}">
         @csrf
 
         <div class="form-group">
-            <label for="">Title
+            <label for="">タイトル
                 <input type="text" name="title" value={{ old('title' )}}>
             </label>
 
@@ -24,7 +24,7 @@
 
         </div>
         <div class="form-group">
-            <label for="">Body
+            <label for="">本文
                 <textarea name="body">{{ old('body') }}</textarea>
             </label>
 
@@ -34,7 +34,7 @@
 
         </div>
         <div class="form-button">
-            <button>Add</button>
+            <button>投稿</button>
         </div>
 
     </form>

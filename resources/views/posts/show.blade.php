@@ -2,14 +2,14 @@
 <x-layout>
 
     <x-slot name="title">
-        {{ $post->title }} - My BBS
+        {{ $post->title }} - Laravel掲示板
       </x-slot>
 
     <div class="back-link">
-        &laquo; <a href="{{ route('posts.index') }}">Back</a>
+        &laquo; <a href="{{ route('posts.index') }}">戻る</a>
     </div>
     <h1>{{ $post->title }}
-        <a href="{{ route('posts.edit', $post) }}">[Edit]</a>
+        <a href="{{ route('posts.edit', $post) }}">編集</a>
 
         <form method="post" action="{{ route('posts.destroy', $post) }}" id=delete_post>
 
@@ -21,14 +21,14 @@
     </h1>
     <p>{!! nl2br(e($post->body)) !!}</p>
 
-    <h2>Comennts</h2>
+    <h2>コメント</h2>
     <ul>
         <li>
             <form method="post" action="{{ route('comments.store', $post) }}" class="comment-form">
                 @csrf
 
                 <input type="text" name="body">
-                <button>add</button>
+                <button>追加</button>
             </form>
         </li>
         @foreach ($post->comments()->latest()->get() as $comment)
@@ -53,7 +53,7 @@
             document.getElementById('delete_post').addEventListener('submit', e => {
                 e.preventDefault();
 
-                if(!confirm('sure to delete?')) {
+                if(!confirm('本当に削除しますか？')) {
                     return;
                 }
 
@@ -65,7 +65,7 @@
                 form.addEventListener('submit', e => {
                     e.preventDefault();
 
-                    if(!confirm('sure to delete?')) {
+                    if(!confirm('本当に削除しますか？')) {
                         return;
                     }
 

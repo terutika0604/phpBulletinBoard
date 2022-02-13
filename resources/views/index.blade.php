@@ -1,14 +1,15 @@
 <x-layout>
 
     <x-slot name="title">
-      My BBS
+        Laravel掲示板
     </x-slot>
 
 <h1>
-    <span>MyBBS</span>
-    <a href="{{ route('posts.create')}}">[Add]</a>
+    <span>Laravel掲示板</span>
+    <a href="{{ route('posts.create')}}">投稿</a>
 </h1>
-<ul>
+<p>自由に書き込み、コメントしてください。</p>
+<ul class="articles">
     @forelse ($posts as $post)
     <li>
         {{-- Implicit Binding --}}

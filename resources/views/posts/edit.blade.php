@@ -2,20 +2,20 @@
 <x-layout>
 
     <x-slot name="title">
-        Edit post - My BBS
+        投稿編集 - Laravel掲示板
       </x-slot>
 
     <div class="back-link">
-        &laquo; <a href="{{ route('posts.show', $post) }}">Back</a>
+        &laquo; <a href="{{ route('posts.show', $post) }}">戻る</a>
     </div>
-    <h1>Edit post</h1>
+    <h1>投稿編集</h1>
 
     <form method="post" action="{{ route('posts.update', $post) }}">
         @method('PATCH')
         @csrf
 
         <div class="form-group">
-            <label for="">Title
+            <label for="">タイトル
                 <input type="text" name="title" value={{ old('title', $post->title) }}>
             </label>
 
@@ -25,7 +25,7 @@
 
         </div>
         <div class="form-group">
-            <label for="">Body
+            <label for="">内容
                 <textarea name="body">{{ old('body', $post->body) }}</textarea>
             </label>
 
@@ -35,7 +35,7 @@
 
         </div>
         <div class="form-button">
-            <button>Update</button>
+            <button>更新</button>
         </div>
 
     </form>
